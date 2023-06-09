@@ -16,15 +16,20 @@ namespace ShipGame
 
     public partial class Form1 : Form
     {
+
+
         List<Point> PozycjaGraczaButtonPoint;
 
         List<Point> PozycjaPrzeciwnikaButtonPoint;
 
         Random rand = new Random();
+
         int TotalShip = 5;
         int round = 10;
         int playerScore;
         int EnemyScore;
+
+
 
 
         public Form1()
@@ -48,10 +53,12 @@ namespace ShipGame
 
         private void EnemyPlayTimeEvent(object sender, EventArgs e)
         {
+
             if (PozycjaPrzeciwnikaButtonPoint.Count > 0 && round > 0)
             {
                 round -= 1;
-                txtRundy.Text = "Runda: " + round;
+
+                txtRundy.Text = "Round: " + round;
 
                 int index = rand.Next(PozycjaGraczaButtonPoint.Count);
 
@@ -60,8 +67,8 @@ namespace ShipGame
                     PozycjaGraczaButtonPoint[index].BackgroundImage = Properties.Resources.fire;
                     ruchWroga.Text = PozycjaGraczaButtonPoint[index].Text;
                     PozycjaGraczaButtonPoint[index].Enabled = false;
-                    PozycjaGraczaButtonPoint[index].BackColor = Color.DarkGreen;
-                    PozycjaPrzeciwnikaButtonPoint.RemoveAt(index);
+                    PozycjaGraczaButtonPoint[index].BackColor = Color.DarkBlue;
+                    PozycjaGraczaButtonPoint.RemoveAt(index);
                     EnemyScore += 1;
                     txtPrzeciwnik.Text = EnemyScore.ToString();
                     CzasGryWroga.Stop();
@@ -71,8 +78,8 @@ namespace ShipGame
                     PozycjaGraczaButtonPoint[index].BackgroundImage = Properties.Resources.shotx;
                     ruchWroga.Text = PozycjaGraczaButtonPoint[index].Text;
                     PozycjaGraczaButtonPoint[index].Enabled = false;
-                    PozycjaGraczaButtonPoint[index].BackColor = Color.DarkGreen;
-                    PozycjaPrzeciwnikaButtonPoint.RemoveAt(index);
+                    PozycjaGraczaButtonPoint[index].BackColor = Color.DarkBlue;
+                    PozycjaGraczaButtonPoint.RemoveAt(index);
                     CzasGryWroga.Stop();
 
                 }
@@ -80,9 +87,10 @@ namespace ShipGame
 
             if (round < 1 || EnemyScore > 2 || playerScore > 2)
             {
+
                 if (playerScore > EnemyScore)
                 {
-                    MessageBox.Show("WYGRAŁEŚ!");
+                    MessageBox.Show("WYGRAŁEŚ!!");
                     RestartGame();
                 }
                 else if (EnemyScore > playerScore)
@@ -92,10 +100,8 @@ namespace ShipGame
                 }
                 else if (EnemyScore == playerScore)
                 {
-                    MessageBox.Show(" NIKT NIE WYGRAŁ TEJ GRY");
+                    MessageBox.Show("NIKT NIE WYGRAŁ TEJ GRY");
                     RestartGame();
-
-
                 }
             }
 
@@ -106,24 +112,24 @@ namespace ShipGame
         private void AtakButtonEvent(object sender, EventArgs e)
         {
             if (PolePrzeciwnikaListaBox.Text != "")
-
             {
 
+                var attackPosition = PolePrzeciwnikaListaBox.Text.ToLower();
 
-                var atakPosition = PolePrzeciwnikaListaBox.Text.ToLower();
-
-                int index = PozycjaPrzeciwnikaButtonPoint.FindIndex(a => a.Name == atakPosition);
+                int index = PozycjaPrzeciwnikaButtonPoint.FindIndex(a => a.Name == attackPosition);
 
                 if (PozycjaPrzeciwnikaButtonPoint[index].Enabled && round > 0)
                 {
                     round -= 1;
-                    txtRundy.Text = "Runda: " + round;
+                    txtRundy.Text = "Round: " + round;
+
 
                     if ((string)PozycjaPrzeciwnikaButtonPoint[index].Tag == "enemyShip")
                     {
+
                         PozycjaPrzeciwnikaButtonPoint[index].Enabled = false;
-                        PozycjaPrzeciwnikaButtonPoint[index].BackColor = Color.DarkBlue;
                         PozycjaPrzeciwnikaButtonPoint[index].BackgroundImage = Properties.Resources.fire;
+                        PozycjaPrzeciwnikaButtonPoint[index].BackColor = Color.DarkBlue;
                         playerScore += 1;
                         txtGracz.Text = playerScore.ToString();
                         CzasGryWroga.Start();
@@ -132,24 +138,25 @@ namespace ShipGame
                     else
                     {
                         PozycjaPrzeciwnikaButtonPoint[index].Enabled = false;
-                        PozycjaPrzeciwnikaButtonPoint[index].BackColor = Color.DarkGray;
                         PozycjaPrzeciwnikaButtonPoint[index].BackgroundImage = Properties.Resources.shotx;
+                        PozycjaPrzeciwnikaButtonPoint[index].BackColor = Color.DarkBlue;
                         CzasGryWroga.Start();
                     }
+
+
                 }
+
+
             }
             else
             {
-                MessageBox.Show("Wybierz pozycje z listy rozwijanej, a następnie Atakuj!");
+                MessageBox.Show("Wybierz pozycje z listy rozwijanej, a następnie Atakuj");
             }
-
-
-
         }
-
 
         private void PozycjaGraczaButtonEvents(object sender, EventArgs e)
         {
+
             if (TotalShip > 0)
             {
                 var button = (Button)sender;
@@ -164,12 +171,39 @@ namespace ShipGame
             {
                 btnAtak.Enabled = true;
                 btnAtak.BackColor = Color.Red;
-                btnAtak.ForeColor = Color.Green;
+                btnAtak.ForeColor = Color.White;
+
+
             }
+
+
         }
+
 
         private void RestartGame()
         {
+
+            //wyswietlenie listy pozycji gracza//
+            List<Point> PozycjaGraczaButtonPoint = new List<Point>();
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 1 }); /*a1*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 1 }); /*a2*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 1 }); /*a3*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 1 }); /*a4*/
+
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 2 }); /*a1*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 2 }); /*a2*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 2 }); /*a3*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 2 }); /*a4*/
+
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 3 }); /*a1*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 3 }); /*a2*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 3 }); /*a3*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 3 }); /*a4*/
+
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 4 }); /*a1*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 4 }); /*a2*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 4 }); /*a3*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 4 }); /*a4*/
             //wyswietlenie listy pozycji przeciwnika//
             List<Point> PozycjaPrzeciwnikaButtonPoint = new List<Point>();
             PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 1, y = 1 }); /*a1*/
@@ -192,72 +226,41 @@ namespace ShipGame
             PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 4, y = 4 }); /*a3*/
             PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 4, y = 4 }); /*a4*/
 
-            /*            foreach (Point p in PozycjaPrzeciwnikaButtonPoint)
-                        {
+            /*
+                        PolePrzeciwnikaListaBox.Items.Clear();
 
-                            char columnLetter = (char)('A' + p.x - 1);
-                            string PozycjaPrzeciwnikaButtonPoint = $"{columnLetter}{p.y}";
-                            PolePrzeciwnikaListaBox.Items.Add(PozycjaPrzeciwnikaButtonPoint);
-                        }*/
+                        PolePrzeciwnikaListaBox.Text = null;*/
+
+
+
+            PozycjaPrzeciwnikaButtonPoint = PozycjaPrzeciwnikaButtonPoint.Distinct().ToList();
+
             PolePrzeciwnikaListaBox.Items.Clear();
             PolePrzeciwnikaListaBox.Text = null;
 
             for (int i = 0; i < PozycjaPrzeciwnikaButtonPoint.Count; i++)
             {
-                PozycjaPrzeciwnikaButtonPoint[i].Enabled = true;
+                // The Point class does not have an 'Enabled' property, so this line will throw an error
+                // PozycjaPrzeciwnikaButtonPoint[i].Enabled = true;
+
                 PozycjaPrzeciwnikaButtonPoint[i].Tag = null;
                 PozycjaPrzeciwnikaButtonPoint[i].BackColor = Color.White;
                 PozycjaPrzeciwnikaButtonPoint[i].BackgroundImage = null;
-                PolePrzeciwnikaListaBox.Items.Add(PozycjaPrzeciwnikaButtonPoint[i].Text);
-
-
+                PolePrzeciwnikaListaBox.Items.Add(PozycjaPrzeciwnikaButtonPoint[i].ToString());
             }
-
-            // Lista 'PozycjaGraczaButtonPoint'
-            List<Point> PozycjaGraczaButtonPoint = new List<Point>();
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 1 }); /*a1*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 1 }); /*a2*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 1 }); /*a3*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 1 }); /*a4*/
-
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 2 }); /*a1*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 2 }); /*a2*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 2 }); /*a3*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 2 }); /*a4*/
-
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 3 }); /*a1*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 3 }); /*a2*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 3 }); /*a3*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 3 }); /*a4*/
-
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 4 }); /*a1*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 4 }); /*a2*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 4 }); /*a3*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 4 }); /*a4*/
-
-            /*            foreach (Point p in PozycjaPrzeciwnikaButtonPoint)
-                        {
-                            char columnLetter = (char)('A' + p.x - 1);
-                            string positionString = $"{columnLetter}{p.y}";
-
-
-                        }*/
 
             for (int i = 0; i < PozycjaGraczaButtonPoint.Count; i++)
             {
                 PozycjaGraczaButtonPoint[i].Enabled = true;
                 PozycjaGraczaButtonPoint[i].Tag = null;
                 PozycjaGraczaButtonPoint[i].BackColor = Color.White;
-                PozycjaGraczaButtonPoint[i].BackgroundImage = null;
+                PozycjaPrzeciwnikaButtonPoint[i].BackgroundImage = null;
             }
-
-
-
 
             playerScore = 0;
             EnemyScore = 0;
             round = 10;
-            TotalShip = 5;
+            TotalShip = 3;
 
             txtGracz.Text = playerScore.ToString();
             txtPrzeciwnik.Text = EnemyScore.ToString();
@@ -266,7 +269,6 @@ namespace ShipGame
             btnAtak.Enabled = false;
 
             EnemyLocationPicker();
-
 
 
         }
@@ -286,10 +288,11 @@ namespace ShipGame
 
                 else
                 {
-                     index = rand.Next(PozycjaPrzeciwnikaButtonPoint.Count);
+                    index = rand.Next(PozycjaPrzeciwnikaButtonPoint.Count);
                 }
             }
 
         }
     }
 }
+
