@@ -126,7 +126,7 @@
             this.PolePrzeciwnikaListaBox.FormattingEnabled = true;
             this.PolePrzeciwnikaListaBox.Location = new System.Drawing.Point(199, 12);
             this.PolePrzeciwnikaListaBox.Name = "PolePrzeciwnikaListaBox";
-            this.PolePrzeciwnikaListaBox.Size = new System.Drawing.Size(121, 24);
+            this.PolePrzeciwnikaListaBox.Size = new System.Drawing.Size(121, 28);
             this.PolePrzeciwnikaListaBox.TabIndex = 1;
             // 
             // btnAtak
@@ -572,7 +572,6 @@
         private System.Windows.Forms.Label txtRundy;
         private System.Windows.Forms.Label ruchWroga;
         private System.Windows.Forms.ComboBox PolePrzeciwnikaListaBox;
-        private System.Windows.Forms.Button btnAtak;
         private System.Windows.Forms.Button a1;
         private System.Windows.Forms.Button a2;
         private System.Windows.Forms.Button a3;
@@ -606,6 +605,7 @@
         private System.Windows.Forms.Button dx2;
         private System.Windows.Forms.Button dx1;
         private System.Windows.Forms.Timer CzasGryWroga;
+        public System.Windows.Forms.Button btnAtak;
     }
 }
 
