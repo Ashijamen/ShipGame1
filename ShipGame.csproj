@@ -52,10 +52,28 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelpScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpScreen.Designer.cs">
+      <DependentUpon>HelpScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="startscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="startscreen.Designer.cs">
+      <DependentUpon>startscreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpScreen.resx">
+      <DependentUpon>HelpScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="startscreen.resx">
+      <DependentUpon>startscreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,7 +99,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fire.jpg" />
+    <Resource Include="Resources\fire.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu.png" />

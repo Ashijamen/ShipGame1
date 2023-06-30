@@ -98,11 +98,11 @@
             // 
             this.txtRundy.AutoSize = true;
             this.txtRundy.BackColor = System.Drawing.Color.Transparent;
-            this.txtRundy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtRundy.ForeColor = System.Drawing.Color.White;
-            this.txtRundy.Location = new System.Drawing.Point(457, 152);
+            this.txtRundy.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtRundy.ForeColor = System.Drawing.Color.Black;
+            this.txtRundy.Location = new System.Drawing.Point(445, 150);
             this.txtRundy.Name = "txtRundy";
-            this.txtRundy.Size = new System.Drawing.Size(130, 29);
+            this.txtRundy.Size = new System.Drawing.Size(163, 36);
             this.txtRundy.TabIndex = 0;
             this.txtRundy.Text = "Runda: 10";
             // 
@@ -110,11 +110,11 @@
             // 
             this.ruchWroga.AutoSize = true;
             this.ruchWroga.BackColor = System.Drawing.Color.Transparent;
-            this.ruchWroga.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ruchWroga.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ruchWroga.ForeColor = System.Drawing.Color.White;
-            this.ruchWroga.Location = new System.Drawing.Point(909, 19);
+            this.ruchWroga.Location = new System.Drawing.Point(909, 14);
             this.ruchWroga.Name = "ruchWroga";
-            this.ruchWroga.Size = new System.Drawing.Size(43, 29);
+            this.ruchWroga.Size = new System.Drawing.Size(55, 36);
             this.ruchWroga.TabIndex = 0;
             this.ruchWroga.Text = "A1";
             // 
@@ -143,7 +143,7 @@
             // a1
             // 
             this.a1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.a1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.a1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.a1.Location = new System.Drawing.Point(56, 194);
             this.a1.Name = "a1";
             this.a1.Size = new System.Drawing.Size(81, 79);
@@ -155,7 +155,7 @@
             // a2
             // 
             this.a2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.a2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.a2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.a2.Location = new System.Drawing.Point(147, 194);
             this.a2.Name = "a2";
             this.a2.Size = new System.Drawing.Size(81, 79);
@@ -167,7 +167,7 @@
             // a3
             // 
             this.a3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.a3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.a3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.a3.Location = new System.Drawing.Point(237, 194);
             this.a3.Name = "a3";
             this.a3.Size = new System.Drawing.Size(99, 79);
@@ -179,7 +179,7 @@
             // a4
             // 
             this.a4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.a4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.a4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.a4.Location = new System.Drawing.Point(346, 194);
             this.a4.Name = "a4";
             this.a4.Size = new System.Drawing.Size(67, 79);
@@ -191,7 +191,7 @@
             // b4
             // 
             this.b4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.b4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.b4.Location = new System.Drawing.Point(346, 283);
             this.b4.Name = "b4";
             this.b4.Size = new System.Drawing.Size(67, 82);
@@ -203,7 +203,7 @@
             // b3
             // 
             this.b3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.b3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.b3.Location = new System.Drawing.Point(237, 283);
             this.b3.Name = "b3";
             this.b3.Size = new System.Drawing.Size(99, 82);
@@ -215,7 +215,7 @@
             // b2
             // 
             this.b2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.b2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.b2.Location = new System.Drawing.Point(147, 283);
             this.b2.Name = "b2";
             this.b2.Size = new System.Drawing.Size(81, 82);
@@ -227,7 +227,7 @@
             // b1
             // 
             this.b1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.b1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.b1.Location = new System.Drawing.Point(56, 283);
             this.b1.Name = "b1";
             this.b1.Size = new System.Drawing.Size(81, 82);
@@ -239,7 +239,7 @@
             // c4
             // 
             this.c4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.c4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.c4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.c4.Location = new System.Drawing.Point(346, 376);
             this.c4.Name = "c4";
             this.c4.Size = new System.Drawing.Size(67, 82);
@@ -251,7 +251,7 @@
             // c3
             // 
             this.c3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.c3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.c3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.c3.Location = new System.Drawing.Point(237, 376);
             this.c3.Name = "c3";
             this.c3.Size = new System.Drawing.Size(99, 82);
@@ -263,7 +263,7 @@
             // c2
             // 
             this.c2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.c2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.c2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.c2.Location = new System.Drawing.Point(147, 376);
             this.c2.Name = "c2";
             this.c2.Size = new System.Drawing.Size(81, 82);
@@ -275,7 +275,7 @@
             // c1
             // 
             this.c1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.c1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.c1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.c1.Location = new System.Drawing.Point(56, 376);
             this.c1.Name = "c1";
             this.c1.Size = new System.Drawing.Size(81, 82);
@@ -287,7 +287,7 @@
             // d4
             // 
             this.d4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.d4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.d4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.d4.Location = new System.Drawing.Point(346, 467);
             this.d4.Name = "d4";
             this.d4.Size = new System.Drawing.Size(67, 59);
@@ -299,7 +299,7 @@
             // d3
             // 
             this.d3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.d3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.d3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.d3.Location = new System.Drawing.Point(237, 467);
             this.d3.Name = "d3";
             this.d3.Size = new System.Drawing.Size(99, 59);
@@ -311,7 +311,7 @@
             // d2
             // 
             this.d2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.d2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.d2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.d2.Location = new System.Drawing.Point(147, 467);
             this.d2.Name = "d2";
             this.d2.Size = new System.Drawing.Size(81, 59);
@@ -323,7 +323,7 @@
             // d1
             // 
             this.d1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.d1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.d1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.d1.Location = new System.Drawing.Point(56, 467);
             this.d1.Name = "d1";
             this.d1.Size = new System.Drawing.Size(81, 59);
@@ -335,7 +335,7 @@
             // ax4
             // 
             this.ax4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ax4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ax4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ax4.Location = new System.Drawing.Point(910, 194);
             this.ax4.Name = "ax4";
             this.ax4.Size = new System.Drawing.Size(88, 79);
@@ -346,7 +346,7 @@
             // ax3
             // 
             this.ax3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ax3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ax3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ax3.Location = new System.Drawing.Point(816, 194);
             this.ax3.Name = "ax3";
             this.ax3.Size = new System.Drawing.Size(84, 79);
@@ -357,7 +357,7 @@
             // ax2
             // 
             this.ax2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ax2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ax2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ax2.Location = new System.Drawing.Point(732, 194);
             this.ax2.Name = "ax2";
             this.ax2.Size = new System.Drawing.Size(74, 79);
@@ -368,7 +368,7 @@
             // ax1
             // 
             this.ax1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ax1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ax1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ax1.Location = new System.Drawing.Point(641, 194);
             this.ax1.Name = "ax1";
             this.ax1.Size = new System.Drawing.Size(81, 79);
@@ -379,7 +379,7 @@
             // bx4
             // 
             this.bx4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bx4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bx4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bx4.Location = new System.Drawing.Point(910, 286);
             this.bx4.Name = "bx4";
             this.bx4.Size = new System.Drawing.Size(88, 79);
@@ -390,7 +390,7 @@
             // bx3
             // 
             this.bx3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bx3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bx3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bx3.Location = new System.Drawing.Point(816, 286);
             this.bx3.Name = "bx3";
             this.bx3.Size = new System.Drawing.Size(84, 79);
@@ -401,7 +401,7 @@
             // bx2
             // 
             this.bx2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bx2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bx2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bx2.Location = new System.Drawing.Point(732, 286);
             this.bx2.Name = "bx2";
             this.bx2.Size = new System.Drawing.Size(74, 79);
@@ -412,7 +412,7 @@
             // bx1
             // 
             this.bx1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bx1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bx1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bx1.Location = new System.Drawing.Point(641, 286);
             this.bx1.Name = "bx1";
             this.bx1.Size = new System.Drawing.Size(81, 79);
@@ -423,7 +423,7 @@
             // cx4
             // 
             this.cx4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cx4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cx4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cx4.Location = new System.Drawing.Point(910, 378);
             this.cx4.Name = "cx4";
             this.cx4.Size = new System.Drawing.Size(88, 79);
@@ -434,7 +434,7 @@
             // cx3
             // 
             this.cx3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cx3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cx3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cx3.Location = new System.Drawing.Point(816, 378);
             this.cx3.Name = "cx3";
             this.cx3.Size = new System.Drawing.Size(84, 79);
@@ -445,7 +445,7 @@
             // cx2
             // 
             this.cx2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cx2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cx2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cx2.Location = new System.Drawing.Point(732, 378);
             this.cx2.Name = "cx2";
             this.cx2.Size = new System.Drawing.Size(74, 79);
@@ -456,7 +456,7 @@
             // cx1
             // 
             this.cx1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cx1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cx1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cx1.Location = new System.Drawing.Point(641, 378);
             this.cx1.Name = "cx1";
             this.cx1.Size = new System.Drawing.Size(81, 79);
@@ -467,7 +467,7 @@
             // dx4
             // 
             this.dx4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dx4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dx4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dx4.Location = new System.Drawing.Point(910, 467);
             this.dx4.Name = "dx4";
             this.dx4.Size = new System.Drawing.Size(88, 59);
@@ -478,7 +478,7 @@
             // dx3
             // 
             this.dx3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dx3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dx3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dx3.Location = new System.Drawing.Point(816, 467);
             this.dx3.Name = "dx3";
             this.dx3.Size = new System.Drawing.Size(84, 59);
@@ -489,7 +489,7 @@
             // dx2
             // 
             this.dx2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dx2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dx2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dx2.Location = new System.Drawing.Point(732, 467);
             this.dx2.Name = "dx2";
             this.dx2.Size = new System.Drawing.Size(74, 59);
@@ -500,7 +500,7 @@
             // dx1
             // 
             this.dx1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dx1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dx1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dx1.Location = new System.Drawing.Point(641, 467);
             this.dx1.Name = "dx1";
             this.dx1.Size = new System.Drawing.Size(81, 59);
@@ -558,7 +558,9 @@
             this.Controls.Add(this.ruchWroga);
             this.Controls.Add(this.txtPrzeciwnik);
             this.Controls.Add(this.txtGracz);
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

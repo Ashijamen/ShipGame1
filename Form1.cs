@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using System.Diagnostics;
-using static ShipGame.Form1;
 
 
 namespace ShipGame
@@ -17,11 +15,12 @@ namespace ShipGame
 
     public partial class Form1 : Form
     {
+
+
         public List<Point> PozycjaGraczaButtonPoint;
         public List<Point> PozycjaPrzeciwnikaButtonPoint;
-         
 
-
+       
 
         Random rand = new Random();
 
@@ -29,12 +28,6 @@ namespace ShipGame
         int round = 10;
         int playerScore;
         int EnemyScore;
-
-        public Form1()
-        {
-            InitializeComponent();
-            RestartGame();
-        }
 
         public class Point
         {
@@ -44,37 +37,51 @@ namespace ShipGame
             public string Tag { get; set; } //Dowolna etykieta lub tag przypisany do punktu.
             public Color BackColor { get; set; } //Kolor tła punktu.
             public string Text { get; set; } //Tekst wyświetlany na punkcie.
-            public object BackgroundImage { get; internal set; } //Obrazek tła punktu.
+            public Image BackgroundImage { get; internal set; } //Obrazek tła punktu.
             public string Name { get; set; } //Nazwa punktu.
-        }
-        public class AddPlayer
-        {
-            public string tableName { get; set; }
-            public string playerName { get; set; }
-            public List<Point> ships { get; set; }
+
+
+
+
+            public Point()
+            {
+                BackColor = Color.DarkBlue;
+                BackgroundImage = Properties.Resources.fire;
+            }
+
+            
+
+
+
 
         }
 
-        private void EnemyPlayTimeEvent(object sender, EventArgs e)
+
+        public Form1()
+        {
+            InitializeComponent();
+            //MessageBox.Show("PozycjaGraczaButtonPoint: " + (PozycjaGraczaButtonPoint != null && PozycjaGraczaButtonPoint.Count == 0));
+            RestartGame();
+        }
+
+        private void EnemyPlayTimeEvent(object sender, EventArgs e) //ruch wroga
         {
 
-
-
-            if (PozycjaPrzeciwnikaButtonPoint.Count > 0 && round > 0)
+            if (PozycjaGraczaButtonPoint.Count > 0 && round > 0)
             {
                 round -= 1;
+
                 txtRundy.Text = "Round: " + round;
 
-                int index = rand.Next(PozycjaGraczaButtonPoint.Count); //Losuje liczbę całkowitą z zakresu od 0 do liczby dostępnych pozycji gracza minus 1
-                //
+                int index = rand.Next(PozycjaGraczaButtonPoint.Count);
 
-                if ((string)PozycjaGraczaButtonPoint[index].Tag == "playerShip") // Sprawdza tag wybranej pozycji gracza i porównuje go z ciągiem znaków "playerShip".
+                if ((string)PozycjaGraczaButtonPoint[index].Tag == "playerShip")
                 {
                     PozycjaGraczaButtonPoint[index].BackgroundImage = Properties.Resources.fire;
                     ruchWroga.Text = PozycjaGraczaButtonPoint[index].Text;
-                    PozycjaGraczaButtonPoint[index].Enabled = false; //Wyłącza możliwość interakcji z wybraną pozycją gracza
+                    PozycjaGraczaButtonPoint[index].Enabled = false;
                     PozycjaGraczaButtonPoint[index].BackColor = Color.DarkBlue;
-                    PozycjaGraczaButtonPoint.RemoveAt(index); // Usuwa wybraną pozycję gracza z listy dostępnych pozycji.
+                    PozycjaGraczaButtonPoint.RemoveAt(index);
                     EnemyScore += 1;
                     txtPrzeciwnik.Text = EnemyScore.ToString();
                     CzasGryWroga.Stop();
@@ -88,49 +95,74 @@ namespace ShipGame
                     PozycjaGraczaButtonPoint.RemoveAt(index);
                     CzasGryWroga.Stop();
                 }
+
             }
+
 
             if (round < 1 || EnemyScore > 2 || playerScore > 2)
             {
+
                 if (playerScore > EnemyScore)
                 {
-                    MessageBox.Show("WYGRAŁEŚ!!");
+                    CzasGryWroga.Stop();
+                    MessageBox.Show("WYGRAŁEŚ!!", "Winning");
+                    /*Application.Restart();*/
                     RestartGame();
+
+
                 }
                 else if (EnemyScore > playerScore)
                 {
-                    MessageBox.Show("PRZEGRAŁEŚ");
+                    CzasGryWroga.Stop();
+                    MessageBox.Show("Haha, przegrałeś", "Lost");
+                    //Application.Restart();
                     RestartGame();
+
                 }
                 else if (EnemyScore == playerScore)
                 {
-                    MessageBox.Show("NIKT NIE WYGRAŁ TEJ GRY");
+                    CzasGryWroga.Stop();
+                   MessageBox.Show("remis", "Draw");
+
+                    //Application.Restart();
                     RestartGame();
+
                 }
+                RestartGame();
+                
+
             }
+
+
+
         }
 
         private void AtakButtonEvent(object sender, EventArgs e)
         {
-            if (PolePrzeciwnikaListaBox.Text != "") //
+            if (PolePrzeciwnikaListaBox.Text != "")
             {
-                var attackPosition = PolePrzeciwnikaListaBox.Text.ToLower(); // Konwertuje tekst z PolePrzeciwnikaListaBox na małe litery i przypisuje do zmiennej attackPosition.
 
-                int index = PozycjaPrzeciwnikaButtonPoint.FindIndex(a => a.Name == attackPosition); // Wyszukuje indeks elementu na liście PozycjaPrzeciwnikaButtonPoint, który ma wartość Name równą attackPosition. 
+                var attackPosition = PolePrzeciwnikaListaBox.Text.ToLower();
 
-                if (index >= 0 && index < PozycjaPrzeciwnikaButtonPoint.Count && PozycjaPrzeciwnikaButtonPoint[index].Enabled && round > 0) // sprawdza czy znaleziono index w pozycjaprzeciwnika, czy pozycja ataku istnieje
+                int index = PozycjaPrzeciwnikaButtonPoint.FindIndex(a => a.Text == attackPosition);
+                if (index >= 0 && PozycjaPrzeciwnikaButtonPoint[index].Enabled && round > 0)
                 {
                     round -= 1;
                     txtRundy.Text = "Round: " + round;
 
+
                     if ((string)PozycjaPrzeciwnikaButtonPoint[index].Tag == "enemyShip")
                     {
-                        PozycjaPrzeciwnikaButtonPoint[index].Enabled = false; //przycisk jest nie akyuwny
+
+                        PozycjaPrzeciwnikaButtonPoint[index].Enabled = false;
                         PozycjaPrzeciwnikaButtonPoint[index].BackgroundImage = Properties.Resources.fire;
                         PozycjaPrzeciwnikaButtonPoint[index].BackColor = Color.DarkBlue;
                         playerScore += 1;
                         txtGracz.Text = playerScore.ToString();
                         CzasGryWroga.Start();
+
+
+
                     }
                     else
                     {
@@ -139,24 +171,29 @@ namespace ShipGame
                         PozycjaPrzeciwnikaButtonPoint[index].BackColor = Color.DarkBlue;
                         CzasGryWroga.Start();
                     }
+
+
                 }
+
+
+
             }
             else
             {
-                MessageBox.Show("Najpierw wybierz lokalizację z listy rozwijanej", "Informacja");
+                MessageBox.Show("Choose a location from the drop down first", "Information");
             }
-
         }
 
         private void PozycjaGraczaButtonEvents(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
 
             if (TotalShip > 0)
             {
-                btn.BackColor = Color.Orange;
-                btn.Enabled = false;
-                btn.Tag = "playerShip";
+                var button = (Button)sender;
+
+                button.Enabled = false;
+                button.Tag = "playerShip";
+                button.BackColor = Color.Orange;
                 TotalShip -= 1;
             }
 
@@ -166,100 +203,89 @@ namespace ShipGame
                 btnAtak.BackColor = Color.Red;
                 btnAtak.ForeColor = Color.White;
 
+
             }
+
+
+
+
         }
+
 
         private void RestartGame()
         {
+
             PozycjaGraczaButtonPoint = new List<Point>();
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 1 }); /*a1*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 2 }); /*a2*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 3 }); /*a3*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 4 }); /*a4*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 1, Text = "a1" }); /*a1*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 1, Text = "a2" }); /*a2*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 1, Text = "a3" }); /*a3*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 1, Text = "a3" }); /*a4*/
 
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 1 }); /*a1*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 2 }); /*a2*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 3 }); /*a3*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 4 }); /*a4*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 2, Text = "b1" }); /*a1*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 2, Text = "b2" }); /*a2*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 2, Text = "b3" }); /*a3*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 2, Text = "b4" }); /*a4*/
 
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 1 }); /*a1*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 2 }); /*a2*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 3 }); /*a3*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 4 }); /*a4*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 3, Text = "c1" }); /*a1*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 3, Text = "c2" }); /*a2*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 3, Text = "c3" }); /*a3*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 3, Text = "c4" }); /*a4*/
 
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 1 }); /*a1*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 2 }); /*a2*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 3 }); /*a3*/
-            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 4 }); /*a4*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 1, y = 4, Text = "d1" }); /*a1*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 2, y = 4, Text = "d2" }); /*a2*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 3, y = 4, Text = "d3" }); /*a3*/
+            PozycjaGraczaButtonPoint.Add(new Point() { x = 4, y = 4, Text = "d4" }); /*a4*/
 
-            // Dodawanie punktów do listy ships
-            AddPlayer addPlayer = new AddPlayer();
-            addPlayer.ships = new List<Point>();
-            addPlayer.ships.Add(new Point() { x = 1, y = 2 });
-            addPlayer.ships.Add(new Point() { x = 3, y = 4 });
-            addPlayer.ships.Add(new Point() { x = 5, y = 6 });
-
-
-
-            //wyswietlenie listy pozycji przeciwnika//
             PozycjaPrzeciwnikaButtonPoint = new List<Point>();
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 1, y = 1}); /*a1*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 2, y = 1}); /*ax2*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 3, y = 1 }); /*ax3*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 4, y = 1 }); /*ax4*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 1, y = 1, Text = "ax1" }); /*a1*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 2, y = 1, Text = "ax2" }); /*ax2*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 3, y = 1, Text = "ax3" }); /*ax3*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 4, y = 1, Text = "ax4" }); /*ax4*/
 
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 1, y = 2 }); /*a1*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 2, y = 2 }); /*a2*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 3, y = 2 }); /*a3*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 4, y = 2 }); /*a4*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 1, y = 2, Text = "bx1" }); /*a1*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 2, y = 2, Text = "bx2" }); /*a2*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 3, y = 2, Text = "bx3" }); /*a3*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 4, y = 2, Text = "bx4" }); /*a4*/
 
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 1, y = 3 }); /*a1*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 2, y = 3 }); /*a2*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 3, y = 3 }); /*a3*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 4, y = 3 }); /*a4*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 1, y = 3, Text = "cx1" }); /*a1*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 2, y = 3, Text = "cx2" }); /*a2*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 3, y = 3, Text = "cx3" }); /*a3*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 4, y = 3, Text = "cx4" }); /*a4*/
 
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 1, y = 4 }); /*a1*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 2, y = 4 }); /*a2*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 3, y = 4 }); /*a3*/
-            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 4, y = 4 }); /*a4*/
-
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 1, y = 4, Text = "dx1" }); /*a1*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 2, y = 4, Text = "dx2" }); /*a2*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 3, y = 4, Text = "dx3" }); /*a3*/
+            PozycjaPrzeciwnikaButtonPoint.Add(new Point() { x = 4, y = 4, Text = "dx4" }); /*a4*/
 
             PolePrzeciwnikaListaBox.Items.Clear();
 
             PolePrzeciwnikaListaBox.Text = null;
 
-            /*           PolePrzeciwnikaListaBox.Items.Clear();
-
-                       foreach (Point p in PozycjaPrzeciwnikaButtonPoint)
-                       {
-                           char columnLetter = (char)('A' + p.x - 1);
-                           string positionString = $"{columnLetter}{p.y}";
-
-                           PolePrzeciwnikaListaBox.Items.Add(positionString);
-                       }*/
 
             for (int i = 0; i < PozycjaPrzeciwnikaButtonPoint.Count; i++)
             {
                 PozycjaPrzeciwnikaButtonPoint[i].Enabled = true;
-                PozycjaPrzeciwnikaButtonPoint[i].Tag = null; //wlasciwosc przycisku o indeksie i 
-                PozycjaPrzeciwnikaButtonPoint[i].BackColor = Color.White;
+                PozycjaPrzeciwnikaButtonPoint[i].Tag = null;
+                PozycjaPrzeciwnikaButtonPoint[i].BackColor = Color.DarkBlue;
                 PozycjaPrzeciwnikaButtonPoint[i].BackgroundImage = null;
-                if (PozycjaPrzeciwnikaButtonPoint[i].Text == null)
-                {
-                    PozycjaPrzeciwnikaButtonPoint[i].Text = $"({PozycjaPrzeciwnikaButtonPoint[i].x}, {PozycjaPrzeciwnikaButtonPoint[i].y})";
-                }
-
                 PolePrzeciwnikaListaBox.Items.Add(PozycjaPrzeciwnikaButtonPoint[i].Text);
+                if (PozycjaGraczaButtonPoint[i].BackColor == Color.Orange)
+                {
+                    PozycjaGraczaButtonPoint[i].BackColor = Color.DarkBlue;
+                }
             }
 
             for (int i = 0; i < PozycjaGraczaButtonPoint.Count; i++)
             {
                 PozycjaGraczaButtonPoint[i].Enabled = true;
                 PozycjaGraczaButtonPoint[i].Tag = null;
-                PozycjaGraczaButtonPoint[i].BackColor = Color.White;
+                PozycjaGraczaButtonPoint[i].BackColor = Color.DarkBlue;
                 PozycjaGraczaButtonPoint[i].BackgroundImage = null;
-
             }
+
+
+
+
 
             playerScore = 0;
             EnemyScore = 0;
@@ -273,7 +299,16 @@ namespace ShipGame
             btnAtak.Enabled = false;
 
             EnemyLocationPicker();
+
+
         }
+        /* private void ResetButtonState(Point point)
+         {
+             point.Enabled = true;
+             point.Tag = null;
+             point.BackColor = Color.DarkBlue;
+             point.BackgroundImage = null;
+         }*/
 
         private void EnemyLocationPicker()
         {
